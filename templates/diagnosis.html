@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="max-w-4xl mx-auto h-full flex flex-col">
+    <div class="mb-6">
+        <h2 class="text-3xl font-bold text-neon-accent">AI Diagnostic Assistant</h2>
+        <p class="text-gray-400">Describe your symptoms in detail below.</p>
+    </div>
+
+    <div class="flex-grow flex flex-col md:flex-row gap-6">
+        <!-- Chat Area -->
+        <div class="w-full md:w-2/3 glass-panel p-4 flex flex-col relative h-[600px]">
+            <div id="chat-history" class="flex-grow overflow-y-auto space-y-4 pr-2 custom-scrollbar">
+                <!-- Bot Welcome Message -->
+                <div class="flex items-start gap-3">
+                    <div class="w-10 h-10 rounded-full bg-blue-600 flex items-center justify-center flex-shrink-0">
+                        <i class="fa-solid fa-robot text-white"></i>
+                    </div>
+                    <div class="bg-white/10 p-3 rounded-lg rounded-tl-none max-w-[80%]">
+                        <p class="text-sm">Hello. I am your Health AI. Please describe what you are feeling (e.g., "I
+                            have a severe headache and fever").</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Input Area -->
+            <div class="mt-4 relative">
+                <form id="diagnosis-form" class="flex gap-2">
+                    <input type="text" id="symptoms-input"
+                        class="w-full bg-black/30 border border-white/10 rounded-lg px-4 py-3 focus:outline-none focus:border-neon-accent transition"
+                        placeholder="Type your symptoms here..." required>
+                    <button type="submit"
+                        class="bg-neon-accent text-black px-6 py-3 rounded-lg font-bold hover:bg-white transition">
+                        <i class="fa-solid fa-paper-plane"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Analysis Panel (Sidebar) -->
+        <div class="w-full md:w-1/3 space-y-4">
+            <div class="glass-panel p-4 h-full hidden" id="result-panel">
+                <h3 class="text-xl font-bold border-b border-white/10 pb-2 mb-4">Analysis Report</h3>
+
+                <div class="mb-4">
+                    <p class="text-xs text-gray-400 uppercase tracking-widest">Potential Condition</p>
+                    <p id="res-diagnosis" class="text-lg font-semibold text-white mt-1">--</p>
+                </div>
+
+                <div class="mb-4">
+                    <p class="text-xs text-gray-400 uppercase tracking-widest">Severity</p>
+                    <span id="res-severity"
+                        class="inline-block px-2 py-1 rounded text-xs font-bold mt-1 bg-gray-700">--</span>
+                </div>
+
+                <div class="mb-6">
+                    <p class="text-xs text-gray-400 uppercase tracking-widest">Recommended Remedy</p>
+                    <p id="res-remedy" class="text-sm text-gray-300 mt-1">--</p>
+                </div>
+
+                <a href="/hospitals" class="btn-primary w-full text-center block text-sm">
+                    Find Doctor Now
+                </a>
+            </div>
+
+            <!-- Default State of Sidebar -->
+            <div class="glass-panel p-4 h-full flex items-center justify-center text-center text-gray-500"
+                id="waiting-panel">
+                <p>Analysis details will appear here after you submit symptoms.</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

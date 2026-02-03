@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="max-w-6xl mx-auto space-y-12">
+
+    <!-- Hero Section -->
+    <div class="text-center space-y-6 pt-10">
+        <h1
+            class="text-5xl md:text-7xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400 leading-tight">
+            Your Health, <br> <span class="text-neon-accent">Intelligently Managed.</span>
+        </h1>
+        <p class="text-xl text-gray-300 max-w-2xl mx-auto">
+            Advanced AI diagnostics, real-time hospital tracking, and premium home care services at your fingertips.
+        </p>
+        <div class="flex flex-wrap justify-center gap-4 mt-8">
+            <a href="/diagnosis" class="btn-primary">
+                <i class="fa-solid fa-brain mr-2"></i> Start Diagnosis
+            </a>
+            <a href="/hospitals" class="btn-secondary">
+                <i class="fa-solid fa-hospital mr-2"></i> Find Hospital
+            </a>
+        </div>
+    </div>
+
+    <!-- Feature Cards -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-16">
+        <!-- Card 1 -->
+        <div class="glass-card hover-lift">
+            <div class="icon-box text-blue-400">
+                <i class="fa-solid fa-stethoscope text-3xl"></i>
+            </div>
+            <h3 class="text-xl font-bold mt-4 mb-2">AI Symptom Checker</h3>
+            <p class="text-gray-400 text-sm">Input your symptoms and get instant analysis, potential causes, and
+                remedies powered by AI.</p>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="glass-card hover-lift">
+            <div class="icon-box text-green-400">
+                <i class="fa-solid fa-user-doctor text-3xl"></i>
+            </div>
+            <h3 class="text-xl font-bold mt-4 mb-2">Hospital Locator</h3>
+            <p class="text-gray-400 text-sm">Find nearby hospitals, check real-time doctor availability, and get
+                navigation directions.</p>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="glass-card hover-lift">
+            <div class="icon-box text-purple-400">
+                <i class="fa-solid fa-truck-medical text-3xl"></i>
+            </div>
+            <h3 class="text-xl font-bold mt-4 mb-2">Home Services</h3>
+            <p class="text-gray-400 text-sm">Book nurses, physiotherapy, or medicine delivery directly to your doorstep.
+            </p>
+        </div>
+    </div>
+</section>
+{% endblock %}
